@@ -3,7 +3,8 @@
 This is a javascript method with no AJAX or Proxy Domain or JSONP to share cookie between different domains.
 
 aa_domain and bb_domain - clients domain no matter who they are
-cc_domain - cental domain where the cookie will be stored
+
+cc_domain - central domain where the cookie will be stored
 
 
 # Knowing Issues
