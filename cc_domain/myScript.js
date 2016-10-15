@@ -5,20 +5,30 @@
  * @version $Id$
  */
 
-var COOKIE = {
+ var COOKIE = {
 	set: function (name, value) {
-		document.cookie = name + "=" + value + "; path=/";
-		//ex.without expire
+		document.cookie = name + "=" + value + "; expires=expires=Fri, 31 Dec 9999 23:59:59 GMT" +"; path=/";
 	},
-}
+	del: function(name) {
+		document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT;";
+	}
+ }
 
-parent.postMessage(document.cookie, '*');
+ parent.postMessage(document.cookie, '*');
 
-window.addEventListener("message", function(event) {
+ window.addEventListener("message", function(event) {
 	if(event.origin === 'http://aa' || event.origin === 'http://bb') {
 		var j = JSON.parse(event.data);
-		this.COOKIE.set(j.n, j.v) ;
+		switch(j.met) {
+			case "set":
+			this.COOKIE.set(j.n, j.v) ;
+			break;
+
+			case "del":
+			this.COOKIE.del(j.n);
+			break;
+		}
 	} else {
 		return;
 	}
-}, false);
+ }, false);

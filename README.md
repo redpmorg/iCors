@@ -9,13 +9,11 @@ cc_domain - central domain where the cookie will be stored
 
 # Knowing Issues
 
-The COOKIE.set method is not implemented with duration option
-
-There is not a delete method implemented yet
-
 There is not a has method implemented yet
 
-The code is not optimized!
+The library is not optimized!
+
+The library is not minified!
 
 Anyway, enjoy!
 

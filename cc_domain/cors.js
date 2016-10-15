@@ -13,11 +13,11 @@ i.src="http://cc/index.html"; //IE problems without
 document.body.appendChild(i);
 
 var COOKIE = {
-	cookie: "",
+	listCookies: "",
 	i: document.getElementsByTagName("iframe")[0].contentWindow,
 	get: function(name) {
 		var eq = name + "=";
-		var c = COOKIE.cookie.split(';');
+		var c = COOKIE.listCookies.split(';');
 		for (var i = 0; i < c.length; i++) {
 			var a = c[i];
 			while (a.charAt(0) == ' ') {
@@ -30,15 +30,19 @@ var COOKIE = {
 		return null;
 	},
 	set: function(name, value) {
-		COOKIE.i.postMessage(JSON.stringify({n:name, v:value}), '*');
+		COOKIE.i.postMessage(JSON.stringify({met:'set', n:name, v:value}), '*');
+		return;
+	},
+	del: function(name) {
+		COOKIE.i.postMessage(JSON.stringify({met: 'del', n:name}), '*');
+		return;
 	}
 }
 
-//fetch cookie
 window.addEventListener("message", function(event) {
 	if(event.origin !== 'http://cc') {
 		return;
 	}
-	COOKIE.cookie = event.data;
+	this.COOKIE.listCookies = event.data;
 	return;
 }, false);
