@@ -6,15 +6,23 @@ aa_domain and bb_domain - clients domain no matter who they are
 
 cc_domain - central domain where the cookie will be stored
 
+The library is deliberate not optimized and minified because this should be use as teaching material!
+
+# Example
+
+aa_domain, bb_domain and cc_domain should be configured as valid domains.
+
+Open first browser tab or window and enter http://aa
+
+Hit "Like" button
+
+Open second browser tab and enter http://bb!
+
 
 # Knowing Issues
 
-There is not a has method implemented yet
+There is not a "has method" implemented yet
 
-The library is not optimized!
-
-The library is not minified!
-
-Anyway, enjoy!
+Enjoy!
 
 ;)
