@@ -6,6 +6,10 @@
  */
 
  var COOKIE = {
+	get: function() {
+		parent.postMessage(document.cookie, '*');
+		return;
+	},
 	set: function (name, value) {
 		document.cookie = name + "=" + value + "; expires=expires=Fri, 31 Dec 9999 23:59:59 GMT" +"; path=/";
 	},
@@ -26,6 +30,10 @@
 
 			case "del":
 			this.COOKIE.del(j.n);
+			break;
+
+			case "get":
+			this.COOKIE.get();
 			break;
 		}
 	} else {

@@ -6,6 +6,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+	<p>AA page has <span id='aa-s'></span> like(s)</p>
 	<script src="http://cc/cors.js"></script>
+	<script>
+			window.onmessage = function(){
+			var lc = document.getElementById('aa-s');
+			var cc = COOKIE.get('aalike');
+			lc.innerHTML = null === cc ? 0 : cc;	
+		};
+	</script>
 </body>
 </html>

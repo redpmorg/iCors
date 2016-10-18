@@ -6,6 +6,22 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+	<button id="aa-button">Like</button>
+	<p>This page has <span id='aa-s'></span> like(s)</p>
 	<script src="http://cc/cors.js"></script>
+	<script>
+		window.onmessage = function(){
+			var lc = document.getElementById('aa-s');
+			var cc = COOKIE.get('aalike');
+			lc.innerHTML = null === cc ? 0 : cc;	
+		};
+		var b = document.getElementById('aa-button');
+		b.onclick = function(){
+			var l = COOKIE.get('aalike');
+			l++;
+			COOKIE.set('aalike', l);
+			lc.innerHTML = l;
+		};
+	</script>
 </body>
 </html>

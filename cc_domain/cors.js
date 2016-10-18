@@ -16,6 +16,7 @@ var COOKIE = {
 	listCookies: "",
 	i: document.getElementsByTagName("iframe")[0].contentWindow,
 	get: function(name) {
+		COOKIE.i.postMessage(JSON.stringify({met:'get'}), '*');
 		var eq = name + "=";
 		var c = COOKIE.listCookies.split(';');
 		for (var i = 0; i < c.length; i++) {
@@ -38,6 +39,8 @@ var COOKIE = {
 		return;
 	}
 }
+
+COOKIE.i.postMessage(JSON.stringify({met:'get'}), '*');
 
 window.addEventListener("message", function(event) {
 	if(event.origin !== 'http://cc') {
