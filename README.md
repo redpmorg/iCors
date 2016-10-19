@@ -27,6 +27,11 @@ Hit "Like" button
 
 Open second browser tab and enter http://bb!
 
+# DEMO
+
+http://aa.redpm.org
+
+http://bb.redpm.org
 
 # Knowing Issues
 
