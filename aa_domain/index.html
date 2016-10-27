@@ -10,10 +10,10 @@
 	<p>This page has <span id='aa-s'></span> like(s)</p>
 	<script src="http://cc/cors.js"></script>
 	<script>
+		var lc = document.getElementById('aa-s');
 		window.onmessage = function(){
-			var lc = document.getElementById('aa-s');
 			var cc = COOKIE.get('aalike');
-			lc.innerHTML = null === cc ? 0 : cc;	
+			lc.innerHTML = null === cc ? 0 : cc;
 		};
 		var b = document.getElementById('aa-button');
 		b.onclick = function(){
